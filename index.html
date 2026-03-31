@@ -719,8 +719,7 @@ footer p{
 // ===================== SUPABASE CONFIG =====================
 // Replace these with your actual Supabase project URL and anon key
 const SUPABASE_URL = 'https://waoyqzzzqritlwsahqpp.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpX...';
-
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indhb3lxenp6cXJpdGx3c2FocXBwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ5MjY0MzUsImV4cCI6MjA5MDUwMjQzNX0.knPlzeJVDpAdcTIk0p0vN00XtB_xcwbdMvRt3EXtXKA
 let db = null;
 try {
   db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -793,7 +792,7 @@ async function loadProjects(){
 
   let projects = fallback;
 
-  if(db && SUPABASE_URL !== 'YOUR_SUPABASE_URL'){
+  if(db && SUPABASE_URL !== 'https://waoyqzzzqritlwsahqpp.supabase.co'){
     try{
       const {data,error} = await db.from('projects').select('*').order('year',{ascending:false}).limit(6);
       if(!error && data && data.length > 0) projects = data;
